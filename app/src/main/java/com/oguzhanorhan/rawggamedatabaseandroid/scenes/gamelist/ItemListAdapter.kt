@@ -6,26 +6,26 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.oguzhanorhan.rawggamedatabaseandroid.databinding.ItemListViewBinding
-import com.oguzhanorhan.rawggamedatabaseandroid.domain.model.GameItem
+import com.oguzhanorhan.rawggamedatabaseandroid.datasource.model.Game
 
 class ItemListAdapter(val onClickListener: OnClickListener) :
-    ListAdapter<GameItem, ItemListAdapter.ListItemViewHolder>(DiffCallback) {
+    ListAdapter<Game, ItemListAdapter.ListItemViewHolder>(DiffCallback) {
 
     class ListItemViewHolder(private var binding: ItemListViewBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(item: GameItem) {
+        fun bind(item: Game) {
             binding.item = item
             binding.executePendingBindings()
         }
     }
 
-    companion object DiffCallback : DiffUtil.ItemCallback<GameItem>() {
-        override fun areItemsTheSame(oldItem: GameItem, newItem: GameItem): Boolean {
+    companion object DiffCallback : DiffUtil.ItemCallback<Game>() {
+        override fun areItemsTheSame(oldItem: Game, newItem: Game): Boolean {
             return oldItem === newItem
         }
 
-        override fun areContentsTheSame(oldItem: GameItem, newItem: GameItem): Boolean {
-            return oldItem == newItem
+        override fun areContentsTheSame(oldItem: Game, newItem: Game): Boolean {
+            return oldItem.id == newItem.id
         }
     }
 
@@ -44,7 +44,7 @@ class ItemListAdapter(val onClickListener: OnClickListener) :
         holder.bind(item)
     }
 
-    class OnClickListener(val clickListener: (item: GameItem) -> Unit) {
-        fun onClick(item: GameItem) = clickListener(item)
+    class OnClickListener(val clickListener: (item: Game) -> Unit) {
+        fun onClick(item: Game) = clickListener(item)
     }
 }

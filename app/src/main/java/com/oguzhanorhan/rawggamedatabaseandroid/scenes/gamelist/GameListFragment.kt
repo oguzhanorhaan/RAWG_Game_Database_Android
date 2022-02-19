@@ -29,14 +29,23 @@ class GameListFragment : Fragment() {
 
         binding.viewModel = viewModel
 
-
-        binding.imageSlider.adapter = ImageSliderAdapter(context, null)
-
         binding.itemList.adapter = ItemListAdapter(
             ItemListAdapter.OnClickListener {
-                // viewModel.displayItemDetails(it)
+                viewModel.displayItemDetails(it)
             }
         )
+
+        viewModel.items.observe(this, { gameList ->
+            gameList?.let {
+                if (gameList.size < 3) {
+                    binding.imageSlider.adapter = ImageSliderAdapter(context, gameList.take(gameList.size).toList())
+                } else {
+                    binding.imageSlider.adapter = ImageSliderAdapter(context, gameList.take(3).toList())
+                }
+            }
+        })
+
+
 
         return binding.root
     }

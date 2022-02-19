@@ -11,7 +11,7 @@ abstract class BaseVM :
     CoroutineScope {
     private val job = Job()
 
-    override val coroutineContext: CoroutineContext get() = job + Dispatchers.Main
+    override val coroutineContext: CoroutineContext get() = job + Dispatchers.IO
 
     override fun onCleared() {
         super.onCleared()

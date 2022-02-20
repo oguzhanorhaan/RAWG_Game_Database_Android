@@ -36,7 +36,6 @@ class GameListFragment : Fragment() {
                 viewModel.displayItemDetails(it)
             }
         )
-
         viewModel.items.observe(this, { gameList ->
             gameList?.let {
                 if (gameList.size < 3) {

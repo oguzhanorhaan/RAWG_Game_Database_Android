@@ -8,135 +8,152 @@
             name="viewModel"
             type="com.oguzhanorhan.rawggamedatabaseandroid.scenes.gamedetails.GameDetailsVM" />
     </data>
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@android:color/black">
 
-        <androidx.core.widget.NestedScrollView
-            android:id="@+id/nestedScrollView"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:fillViewport="true"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent">
+            android:layout_height="match_parent"
+            android:background="@android:color/black">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <androidx.core.widget.NestedScrollView
+                android:id="@+id/nestedScrollView"
                 android:layout_width="match_parent"
-                android:layout_height="0dp">
+                android:layout_height="0dp"
+                android:fillViewport="true"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent">
 
-                <FrameLayout
-                    android:id="@+id/frame_main_picture"
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:foreground="@drawable/image_overlay_vertical"
-                    app:layout_constraintTop_toTopOf="parent">
+                    android:layout_height="0dp">
 
-                    <ImageView
-                        android:id="@+id/iv_main_picture"
+                    <FrameLayout
+                        android:id="@+id/frame_main_picture"
                         android:layout_width="match_parent"
-                        android:layout_height="300dp"
-                        bind:imageUrl="@{viewModel.selectedItem.background_image}"/>
-                </FrameLayout>
+                        android:layout_height="wrap_content"
+                        android:foreground="@drawable/image_overlay_vertical"
+                        app:layout_constraintTop_toTopOf="parent">
 
-                <TextView
-                    android:id="@+id/tv_title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingTop="8dp"
-                    android:text="@{viewModel.selectedItem.name}"
-                    android:paddingLeft="8dp"
-                    android:paddingRight="8dp"
-                    android:textAlignment="center"
-                    android:textColor="@color/white"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/frame_main_picture" />
+                        <ImageView
+                            android:id="@+id/iv_main_picture"
+                            android:layout_width="match_parent"
+                            android:layout_height="300dp"
+                            bind:imageUrl="@{viewModel.selectedItem.background_image}"/>
+                    </FrameLayout>
 
-                <TextView
-                    android:id="@+id/tv_rating"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:drawableLeft="@drawable/ic_baseline_star_24"
-                    android:gravity="center_vertical"
-                    android:padding="4dp"
-                    android:text="@{viewModel.selectedItem.rating.toString()}"
-                    android:textColor="@color/white"
-                    app:layout_constraintVertical_chainStyle="packed"
-                    app:layout_constraintBottom_toTopOf="@id/tv_description"
-                    app:layout_constraintEnd_toStartOf="@id/view2"
-                    app:layout_constraintHorizontal_chainStyle="packed"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tv_title" />
+                    <TextView
+                        android:id="@+id/tv_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="8dp"
+                        android:text="@{viewModel.selectedItem.name}"
+                        android:paddingLeft="8dp"
+                        android:paddingRight="8dp"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/frame_main_picture" />
 
-                <View
-                    android:id="@+id/view2"
-                    android:layout_width="1dp"
-                    android:layout_height="20dp"
-                    android:layout_marginLeft="2dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginRight="2dp"
-                    android:layout_marginBottom="8dp"
-                    android:background="@android:color/darker_gray"
-                    android:padding="4dp"
-                    app:layout_constraintBottom_toTopOf="@id/tv_description"
-                    app:layout_constraintEnd_toStartOf="@id/tv_year"
-                    app:layout_constraintStart_toEndOf="@id/tv_rating"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_title" />
+                    <TextView
+                        android:id="@+id/tv_rating"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableLeft="@drawable/ic_baseline_star_24"
+                        android:gravity="center_vertical"
+                        android:padding="4dp"
+                        android:text="@{viewModel.selectedItem.rating.toString()}"
+                        android:textColor="@color/white"
+                        app:layout_constraintVertical_chainStyle="packed"
+                        app:layout_constraintBottom_toTopOf="@id/tv_description"
+                        app:layout_constraintEnd_toStartOf="@id/view2"
+                        app:layout_constraintHorizontal_chainStyle="packed"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tv_title" />
 
-                <TextView
-                    android:id="@+id/tv_year"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:padding="4dp"
-                    android:text="@{viewModel.selectedItem.formattedDate}"
-                    android:textColor="@color/white"
-                    app:layout_constraintBottom_toTopOf="@id/tv_description"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/view2"
-                    app:layout_constraintTop_toBottomOf="@id/tv_title" />
+                    <View
+                        android:id="@+id/view2"
+                        android:layout_width="1dp"
+                        android:layout_height="20dp"
+                        android:layout_marginLeft="2dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginRight="2dp"
+                        android:layout_marginBottom="8dp"
+                        android:background="@android:color/darker_gray"
+                        android:padding="4dp"
+                        app:layout_constraintBottom_toTopOf="@id/tv_description"
+                        app:layout_constraintEnd_toStartOf="@id/tv_year"
+                        app:layout_constraintStart_toEndOf="@id/tv_rating"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_title" />
+
+                    <TextView
+                        android:id="@+id/tv_year"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:padding="4dp"
+                        android:text="@{viewModel.selectedItem.formattedDate}"
+                        android:textColor="@color/white"
+                        app:layout_constraintBottom_toTopOf="@id/tv_description"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/view2"
+                        app:layout_constraintTop_toBottomOf="@id/tv_title" />
 
 
-                <TextView
-                    android:id="@+id/tv_description"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingLeft="16dp"
-                    android:paddingRight="16dp"
-                    android:text="Description"
-                    android:textColor="@color/white"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintBottom_toTopOf="@id/tv_description_text"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/view2" />
+                    <TextView
+                        android:id="@+id/tv_description"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="16dp"
+                        android:paddingRight="16dp"
+                        android:text="Description"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintBottom_toTopOf="@id/tv_description_text"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/view2" />
 
-                <TextView
-                    android:id="@+id/tv_description_text"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingLeft="16dp"
-                    android:paddingRight="16dp"
-                    android:text="@{viewModel.selectedItem.formattedDescription}"
-                    android:textColor="@android:color/darker_gray"
-                    android:textSize="14sp"
-                    app:layout_constraintTop_toBottomOf="@id/tv_description" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </androidx.core.widget.NestedScrollView>
+                    <TextView
+                        android:id="@+id/tv_description_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="16dp"
+                        android:paddingRight="16dp"
+                        android:text="@{viewModel.selectedItem.formattedDescription}"
+                        android:textColor="@android:color/darker_gray"
+                        android:textSize="14sp"
+                        app:layout_constraintTop_toBottomOf="@id/tv_description" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.core.widget.NestedScrollView>
 
-        <ImageView
-            android:id="@+id/status_image"
-            android:layout_width="@dimen/status_image_wh"
-            android:layout_height="@dimen/status_image_wh"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:apiStatus="@{viewModel.status}" />
+            <ImageView
+                android:id="@+id/status_image"
+                android:layout_width="@dimen/status_image_wh"
+                android:layout_height="@dimen/status_image_wh"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:apiStatus="@{viewModel.status}" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/bookmarkButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_marginEnd="@dimen/app_standart"
+            android:layout_marginBottom="16dp"
+            app:backgroundTint="@color/white"
+            app:srcCompat="@drawable/bookmark" />
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
 </layout>

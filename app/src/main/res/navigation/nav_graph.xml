@@ -7,5 +7,18 @@
     <fragment
         android:id="@+id/gameListFragment"
         android:name="com.oguzhanorhan.rawggamedatabaseandroid.scenes.gamelist.GameListFragment"
-        android:label="GameListFragment" />
+        android:label="GameListFragment" >
+        <action
+            android:id="@+id/action_gameListFragment_to_gameDetailsFragment"
+            app:destination="@id/gameDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/gameDetailsFragment"
+        android:name="com.oguzhanorhan.rawggamedatabaseandroid.scenes.gamedetails.GameDetailsFragment"
+        android:label="GameDetailsFragment">
+        <argument
+            android:name="selectedItem"
+            app:argType="com.oguzhanorhan.rawggamedatabaseandroid.datasource.model.Game"
+            />
+    </fragment>
 </navigation>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="detail_image_height">200dp</dimen>
+    <dimen name="app_standart">16dp</dimen>
+    <dimen name="app_standart_text">16sp</dimen>
+    <dimen name="app_standard_sm">12dp</dimen>
+    <dimen name="status_image_wh">120dp</dimen>
+    <dimen name="list_item_image_wh">80dp</dimen>
+    <dimen name="card_view_standard_elev">5dp</dimen>
+    <dimen name="card_view_height">120dp</dimen>
+</resources>

@@ -1,37 +1,47 @@
 package com.oguzhanorhan.rawggamedatabaseandroid.datasource.model
 
+import android.os.Parcelable
+import com.oguzhanorhan.rawggamedatabaseandroid.common.formatDate
+import kotlinx.android.parcel.Parcelize
+
+@Parcelize
 data class Games (
-    val count: Int,
-    val next: String,
-    val previous: String,
-    val results: List<GamesResults>
-)
+    val count: Int? = null,
+    val next: String? = null,
+    val previous: String? = null,
+    val results: List<Game>? = null
+): Parcelable
 
-data class GamesResults(
-    val id: Int,
-    val name: String,
-    val slug: String,
-    val added: Int,
-    val name_original: String,
-    val description: String,
-    val rating: Float,
-    val rating_top: Int,
-    val ratings_count: Int,
-    val released: String,
-    val tba: Boolean,
-    val background_image: String,
-    val website: String,
-    val developers: List<GamesDevelopers>,
-    val short_screenshots: List<GamesShortScreenshots>
-)
+@Parcelize
+data class Game(
+    val id: Int? = null,
+    val name: String? = null,
+    val slug: String? = null,
+    val added: Int? = null,
+    val name_original: String? = null,
+    val description: String? = null,
+    val rating: Float? = null,
+    val rating_top: Int? = null,
+    val ratings_count: Int? = null,
+    val released: String? = null,
+    val tba: Boolean? = null,
+    val background_image: String? = null,
+    val website: String? = null,
+    val developers: List<GamesDevelopers>? = null,
+    val short_screenshots: List<GamesShortScreenshots>? = null
+): Parcelable {
+    val formattedDate: String get() = released?.formatDate() ?: ""
+}
 
+@Parcelize
 data class GamesShortScreenshots(
-    val id: Int,
-    val image :String
-)
+    val id: Int? = null,
+    val image :String? = null
+): Parcelable
 
+@Parcelize
 data class GamesDevelopers(
-    val id: Int,
-    val name: String,
-    val slug: String
-)
+    val id: Int? = null,
+    val name: String? = null,
+    val slug: String? = null
+): Parcelable

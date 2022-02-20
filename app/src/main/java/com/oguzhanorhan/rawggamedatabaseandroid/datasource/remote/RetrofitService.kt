@@ -2,31 +2,29 @@ package com.oguzhanorhan.rawggamedatabaseandroid.datasource.remote
 
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import com.oguzhanorhan.rawggamedatabaseandroid.datasource.model.Games
-import com.oguzhanorhan.rawggamedatabaseandroid.datasource.model.GamesResults
+import com.oguzhanorhan.rawggamedatabaseandroid.datasource.model.Game
+import com.squareup.moshi.Moshi
+import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
+import kotlinx.coroutines.Deferred
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
-import retrofit2.Response
 import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface RawgAPI {
     @GET("games")
-    suspend fun getGenresDetail(
-        @Query("key") key: String?,
-        @Query("genres") genre: Int,
-        @Query("ordering") ordering: String?,
-        @Query("page") page: Int,
-        @Query("page_size") page_size: Int
-    ): Response<Games>
+    fun getGames(
+        @Query("key") key: String?
+    ): Deferred<Games>
 
     @GET("games/{id}")
-    suspend fun getGameDetail(
+    fun getGameDetail(
         @Path("id") id: Int,
         @Query("key") key: String?
-    ): Response<GamesResults>
+    ): Deferred<Game>
 }
 
 private fun configureClient(): OkHttpClient {
@@ -35,11 +33,15 @@ private fun configureClient(): OkHttpClient {
     return OkHttpClient.Builder().addInterceptor(interceptor).build()
 }
 
+private val moshi = Moshi.Builder()
+    .add(KotlinJsonAdapterFactory())
+    .build()
+
 fun createNetworkClient(baseUrl: String) = retrofitClient(baseUrl)
 
 private fun retrofitClient(baseUrl: String): Retrofit = Retrofit.Builder()
     .client(configureClient())
-    .addConverterFactory(GsonConverterFactory.create())
+    .addConverterFactory(MoshiConverterFactory.create(moshi))
     .addCallAdapterFactory(CoroutineCallAdapterFactory())
     .baseUrl(baseUrl)
     .build()

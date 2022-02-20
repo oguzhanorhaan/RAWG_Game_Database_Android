@@ -5,6 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.navigation.Navigation
 import com.oguzhanorhan.rawggamedatabaseandroid.common.injectFeature
 import com.oguzhanorhan.rawggamedatabaseandroid.databinding.FragmentGameListBinding
 import org.koin.android.ext.android.inject
@@ -45,6 +47,15 @@ class GameListFragment : Fragment() {
             }
         })
 
+        viewModel.navigateToSelectedItem.observe(
+            this.viewLifecycleOwner,
+            Observer { item ->
+                item?.let {
+                    Navigation.findNavController(binding.root).navigate(GameListFragmentDirections.actionGameListFragmentToGameDetailsFragment(it))
+                    viewModel.displayItemDetailsComplete()
+                }
+            }
+        )
 
 
         return binding.root

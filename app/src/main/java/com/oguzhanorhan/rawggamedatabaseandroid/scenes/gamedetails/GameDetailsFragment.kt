@@ -8,10 +8,10 @@ import androidx.fragment.app.Fragment
 import com.oguzhanorhan.rawggamedatabaseandroid.common.injectFeature
 import com.oguzhanorhan.rawggamedatabaseandroid.databinding.FragmentGameDetailBinding
 import org.koin.android.ext.android.inject
+import org.koin.core.parameter.parametersOf
 
 class GameDetailsFragment: Fragment() {
 
-    private val viewModel by inject<GameDetailsVM>()
     private lateinit var binding: FragmentGameDetailBinding
 
     override fun onCreateView(
@@ -21,6 +21,8 @@ class GameDetailsFragment: Fragment() {
     ): View {
         super.onCreate(savedInstanceState)
         binding = FragmentGameDetailBinding.inflate(inflater)
+        val item = GameDetailsFragmentArgs.fromBundle(requireArguments()).selectedItem
+        val viewModel by inject<GameDetailsVM>(){ parametersOf(item) }
 
         injectFeature()
 

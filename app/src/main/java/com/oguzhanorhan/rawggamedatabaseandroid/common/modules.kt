@@ -2,12 +2,15 @@ package com.oguzhanorhan.rawggamedatabaseandroid.common
 
 import com.oguzhanorhan.rawggamedatabaseandroid.data.datasource.RemoteDataSource
 import com.oguzhanorhan.rawggamedatabaseandroid.data.repository.RawgRepositoryImpl
+import com.oguzhanorhan.rawggamedatabaseandroid.datasource.model.Game
 import com.oguzhanorhan.rawggamedatabaseandroid.datasource.remote.RawgAPI
 import com.oguzhanorhan.rawggamedatabaseandroid.datasource.remote.RemoteDataSourceImpl
 import com.oguzhanorhan.rawggamedatabaseandroid.datasource.remote.ResponseHandler
 import com.oguzhanorhan.rawggamedatabaseandroid.datasource.remote.createNetworkClient
 import com.oguzhanorhan.rawggamedatabaseandroid.domain.repository.RawgRepository
+import com.oguzhanorhan.rawggamedatabaseandroid.domain.usecase.GameDetailsUseCase
 import com.oguzhanorhan.rawggamedatabaseandroid.domain.usecase.GameListUseCase
+import com.oguzhanorhan.rawggamedatabaseandroid.scenes.gamedetails.GameDetailsVM
 import com.oguzhanorhan.rawggamedatabaseandroid.scenes.gamelist.GameListVM
 import org.koin.core.context.loadKoinModules
 import org.koin.core.module.Module
@@ -35,10 +38,17 @@ val viewModelModule: Module = module {
             gameListUseCase = get()
         )
     }
+    viewModel { (item: Game) ->
+        GameDetailsVM(
+            item = item,
+            gameDetailsUseCase = get()
+        )
+    }
 }
 
 val useCaseModule: Module = module {
     factory { GameListUseCase(rawgRepository = get()) }
+    factory { GameDetailsUseCase(rawgRepository = get()) }
 }
 
 val repositoryModule: Module = module {

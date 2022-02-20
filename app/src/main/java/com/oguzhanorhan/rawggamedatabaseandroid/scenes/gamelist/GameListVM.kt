@@ -50,7 +50,6 @@ class GameListVM constructor(
     private fun getGameList() {
         _status.value = RawgApiStatus.LOADING
         launch {
-            //todo: map to domain
             val response = gameListUseCase.get(getApiKey())
             withContext(Dispatchers.Main) {
                 _status.value = response.status

@@ -1,6 +1,7 @@
 package com.oguzhanorhan.rawggamedatabaseandroid.datasource.model
 
 import android.os.Parcelable
+import androidx.core.text.HtmlCompat
 import com.oguzhanorhan.rawggamedatabaseandroid.common.formatDate
 import kotlinx.android.parcel.Parcelize
 
@@ -31,6 +32,7 @@ data class Game(
     val short_screenshots: List<GamesShortScreenshots>? = null
 ): Parcelable {
     val formattedDate: String get() = released?.formatDate() ?: ""
+    val formattedDescription: String get() = (HtmlCompat.fromHtml(description ?: "", HtmlCompat.FROM_HTML_MODE_LEGACY)).toString()
 }
 
 @Parcelize

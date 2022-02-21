@@ -7,7 +7,6 @@ import com.oguzhanorhan.rawggamedatabaseandroid.data.model.RawgApiStatus
 import com.oguzhanorhan.rawggamedatabaseandroid.datasource.model.Game
 import com.oguzhanorhan.rawggamedatabaseandroid.datasource.remote.getApiKey
 import com.oguzhanorhan.rawggamedatabaseandroid.domain.usecase.GameDetailsUseCase
-import com.oguzhanorhan.rawggamedatabaseandroid.domain.usecase.GameListUseCase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext

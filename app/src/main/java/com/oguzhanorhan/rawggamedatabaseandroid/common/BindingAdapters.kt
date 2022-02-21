@@ -9,14 +9,16 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.oguzhanorhan.rawggamedatabaseandroid.R
 import com.oguzhanorhan.rawggamedatabaseandroid.data.model.RawgApiStatus
+import com.oguzhanorhan.rawggamedatabaseandroid.datasource.local.GameEntity
 import com.oguzhanorhan.rawggamedatabaseandroid.datasource.model.Game
 import com.oguzhanorhan.rawggamedatabaseandroid.scenes.gamelist.ItemListAdapter
 
 @BindingAdapter("listData")
-fun bindItunesItemsRecyclerView(recyclerView: RecyclerView, data: List<Game>?) {
+fun bindGameItemsRecyclerView(recyclerView: RecyclerView, data: List<Game>?) {
     val adapter = recyclerView.adapter as ItemListAdapter
     adapter.submitList(data)
 }
+
 
 @BindingAdapter("imageUrl")
 fun bindImage(imgView: ImageView, imgUrl: String?) {

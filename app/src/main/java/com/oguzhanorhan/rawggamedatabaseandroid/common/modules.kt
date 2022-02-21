@@ -2,6 +2,7 @@ package com.oguzhanorhan.rawggamedatabaseandroid.common
 
 import com.oguzhanorhan.rawggamedatabaseandroid.data.datasource.RemoteDataSource
 import com.oguzhanorhan.rawggamedatabaseandroid.data.repository.RawgRepositoryImpl
+import com.oguzhanorhan.rawggamedatabaseandroid.datasource.local.RawgLocalRepository
 import com.oguzhanorhan.rawggamedatabaseandroid.datasource.model.Game
 import com.oguzhanorhan.rawggamedatabaseandroid.datasource.remote.RawgAPI
 import com.oguzhanorhan.rawggamedatabaseandroid.datasource.remote.RemoteDataSourceImpl
@@ -9,9 +10,11 @@ import com.oguzhanorhan.rawggamedatabaseandroid.datasource.remote.ResponseHandle
 import com.oguzhanorhan.rawggamedatabaseandroid.datasource.remote.createNetworkClient
 import com.oguzhanorhan.rawggamedatabaseandroid.domain.repository.RawgRepository
 import com.oguzhanorhan.rawggamedatabaseandroid.domain.usecase.GameDetailsUseCase
-import com.oguzhanorhan.rawggamedatabaseandroid.domain.usecase.GameListUseCase
+import com.oguzhanorhan.rawggamedatabaseandroid.domain.usecase.RetrieveGameListAndSaveToLocaleUseCase
+import com.oguzhanorhan.rawggamedatabaseandroid.domain.usecase.SearchGameLocaleUseCase
 import com.oguzhanorhan.rawggamedatabaseandroid.scenes.gamedetails.GameDetailsVM
 import com.oguzhanorhan.rawggamedatabaseandroid.scenes.gamelist.GameListVM
+import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.loadKoinModules
 import org.koin.core.module.Module
 import org.koin.dsl.module
@@ -35,7 +38,8 @@ private val loadFeature by lazy {
 val viewModelModule: Module = module {
     viewModel {
         GameListVM(
-            gameListUseCase = get()
+            retrieveGameListAndSaveToLocaleUseCase = get(),
+            searchGameLocaleUseCase = get ()
         )
     }
     viewModel { (item: Game) ->
@@ -47,12 +51,18 @@ val viewModelModule: Module = module {
 }
 
 val useCaseModule: Module = module {
-    factory { GameListUseCase(rawgRepository = get()) }
+    factory {
+        RetrieveGameListAndSaveToLocaleUseCase(
+            rawgRepository = get(),
+            rawgLocaleRepository = get())
+    }
     factory { GameDetailsUseCase(rawgRepository = get()) }
+    factory { SearchGameLocaleUseCase(rawgLocaleRepository = get()) }
 }
 
 val repositoryModule: Module = module {
     single { RawgRepositoryImpl(remoteDataSource = get(), responseHandler = get()) as RawgRepository}
+    single { RawgLocalRepository(context = androidContext()) }
 }
 
 val dataSourceModule: Module = module {
@@ -67,3 +77,5 @@ val networkModule: Module = module {
 private val retrofit: Retrofit = createNetworkClient(Configs.Networking.BaseUrl)
 
 private val rawgAPI: RawgAPI = retrofit.create(RawgAPI::class.java)
+
+// todo: provide room from modules

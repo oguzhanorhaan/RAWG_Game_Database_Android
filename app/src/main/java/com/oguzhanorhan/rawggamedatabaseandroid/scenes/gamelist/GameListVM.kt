@@ -81,25 +81,4 @@ class GameListVM constructor(
             }
         }
     }
-
-    fun searchGame(key: String) {
-        _status.value = RawgApiStatus.LOADING
-        launch {
-            val response = retrieveGameListAndSaveToLocaleUseCase.get(getApiKey())
-            withContext(Dispatchers.Main) {
-                _status.value = response.status
-                when(_status.value) {
-                    RawgApiStatus.DONE -> {
-                        _items.value = response.data?.results
-                        if (_items.value?.size ?: 0 > 3) {
-                            _mainGameItems.value = _items.value!!.subList(2,_items.value!!.size-1)
-                        }
-                    }
-                    else -> {
-                        _items.value = ArrayList()
-                    }
-                }
-            }
-        }
-    }
 }

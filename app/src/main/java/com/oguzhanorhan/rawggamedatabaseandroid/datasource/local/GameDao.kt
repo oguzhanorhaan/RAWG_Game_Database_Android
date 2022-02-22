@@ -10,13 +10,13 @@ interface GameDao {
     @Query("Select * from game_table WHERE name LIKE '%' || :query || '%' ORDER BY name DESC")
     fun getGames(query: String): Flow<List<GameEntity>>
 
-    @Query("Select id from game_table")
-    fun getAllGamesId(): Flow<List<Int>>
+    @Query("Select * from game_table WHERE isFavourite = :favourite")
+    fun getFavourites(favourite: Boolean = true): Flow<List<GameEntity>>
 
     @Query("Select * from game_table where id = :id")
     suspend fun getGame(id: Int): GameEntity
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertGame(game: GameEntity)
 
     @Update

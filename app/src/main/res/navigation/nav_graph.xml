@@ -21,4 +21,12 @@
             app:argType="com.oguzhanorhan.rawggamedatabaseandroid.datasource.model.Game"
             />
     </fragment>
+    <fragment
+        android:id="@+id/favouriteGamesFragment"
+        android:name="com.oguzhanorhan.rawggamedatabaseandroid.scenes.favouritegames.FavouriteGamesFragment"
+        android:label="FavouriteGamesFragment" >
+        <action
+            android:id="@+id/action_favouriteGamesFragment_to_gameDetailsFragment"
+            app:destination="@id/gameDetailsFragment" />
+    </fragment>
 </navigation>

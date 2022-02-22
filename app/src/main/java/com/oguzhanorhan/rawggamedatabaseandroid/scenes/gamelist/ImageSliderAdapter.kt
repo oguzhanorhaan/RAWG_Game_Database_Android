@@ -4,38 +4,46 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.LinearLayout
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.viewpager.widget.PagerAdapter
-import com.bumptech.glide.Glide
-import com.oguzhanorhan.rawggamedatabaseandroid.R
 import com.oguzhanorhan.rawggamedatabaseandroid.datasource.model.Game
-import java.util.*
+
+import androidx.databinding.DataBindingUtil
+import com.oguzhanorhan.rawggamedatabaseandroid.databinding.ItemListViewBinding
+
 
 internal class ImageSliderAdapter(
     var context: Context?,
-    var images: List<Game?>
+    var games: List<Game?>,
+    val onClickListener: OnClickListener
 ) : PagerAdapter() {
 
     var mLayoutInflater: LayoutInflater = context?.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
 
     override fun getCount(): Int {
-        return images?.size ?: 0
+        return games?.size ?: 0
     }
 
     override fun isViewFromObject(view: View, `object`: Any): Boolean {
-        return view === `object` as LinearLayout
+        return view === `object` as ConstraintLayout
     }
 
     override fun instantiateItem(container: ViewGroup, position: Int): Any {
-        val itemView: View = mLayoutInflater.inflate(R.layout.item_image_slider, container, false)
-        val imageView = itemView.findViewById<View>(R.id.sliderImage) as ImageView
-        context?.let { Glide.with(it).load(images?.get(position)?.background_image).centerCrop().into(imageView) }
-        Objects.requireNonNull(container).addView(itemView)
-        return itemView
+        val binding: ItemListViewBinding =
+            DataBindingUtil.inflate(mLayoutInflater, com.oguzhanorhan.rawggamedatabaseandroid.R.layout.item_list_view, container, false)
+        binding.imageView.setOnClickListener {
+            games[position]?.let { game -> onClickListener.onClick(game) }
+        }
+        binding.item = games[position]
+        container.addView(binding.root)
+        return binding.root
     }
 
     override fun destroyItem(container: ViewGroup, position: Int, `object`: Any) {
-        container.removeView(`object` as LinearLayout)
+        container.removeView(`object` as ConstraintLayout)
+    }
+
+    class OnClickListener(val clickListener: (item: Game) -> Unit) {
+        fun onClick(item: Game) = clickListener(item)
     }
 }

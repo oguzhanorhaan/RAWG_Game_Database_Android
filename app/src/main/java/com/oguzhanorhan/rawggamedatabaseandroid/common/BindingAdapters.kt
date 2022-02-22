@@ -21,10 +21,10 @@ fun bindGameItemsRecyclerView(recyclerView: RecyclerView, data: List<Game>?) {
 
 
 @BindingAdapter("imageUrl")
-fun bindImage(imgView: ImageView, imgUrl: String?) {
+fun ImageView.bindImage(imgUrl: String?) {
     imgUrl?.let {
         val imgUri = imgUrl.toUri().buildUpon().scheme("https").build()
-        Glide.with(imgView.context)
+        Glide.with(this.context)
             .load(imgUri)
             .centerCrop()
             .apply(
@@ -32,7 +32,7 @@ fun bindImage(imgView: ImageView, imgUrl: String?) {
                     .placeholder(R.drawable.loading_animation)
                     .error(R.drawable.ic_broken_image)
             )
-            .into(imgView)
+            .into(this)
     }
 }
 

@@ -11,8 +11,8 @@ class RawgLocalRepository(context: Context) {
         return db.getGames(query)
     }
 
-    fun getAllBookmarkId(): Flow<List<Int>> {
-        return db.getAllGamesId()
+    fun getAllFavourites(): Flow<List<GameEntity>> {
+        return db.getFavourites()
     }
 
     suspend fun getGame(id: Int): GameEntity{

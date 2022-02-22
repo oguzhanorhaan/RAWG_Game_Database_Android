@@ -10,8 +10,10 @@ import com.oguzhanorhan.rawggamedatabaseandroid.datasource.remote.ResponseHandle
 import com.oguzhanorhan.rawggamedatabaseandroid.datasource.remote.createNetworkClient
 import com.oguzhanorhan.rawggamedatabaseandroid.domain.repository.RawgRepository
 import com.oguzhanorhan.rawggamedatabaseandroid.domain.usecase.GameDetailsUseCase
+import com.oguzhanorhan.rawggamedatabaseandroid.domain.usecase.GetFavouritesUseCase
 import com.oguzhanorhan.rawggamedatabaseandroid.domain.usecase.RetrieveGameListAndSaveToLocaleUseCase
 import com.oguzhanorhan.rawggamedatabaseandroid.domain.usecase.SearchGameLocaleUseCase
+import com.oguzhanorhan.rawggamedatabaseandroid.scenes.favouritegames.FavouriteGamesVM
 import com.oguzhanorhan.rawggamedatabaseandroid.scenes.gamedetails.GameDetailsVM
 import com.oguzhanorhan.rawggamedatabaseandroid.scenes.gamelist.GameListVM
 import org.koin.android.ext.koin.androidContext
@@ -48,6 +50,11 @@ val viewModelModule: Module = module {
             gameDetailsUseCase = get()
         )
     }
+    viewModel {
+        FavouriteGamesVM(
+            getFavouritesUseCase = get()
+        )
+    }
 }
 
 val useCaseModule: Module = module {
@@ -58,6 +65,7 @@ val useCaseModule: Module = module {
     }
     factory { GameDetailsUseCase(rawgRepository = get()) }
     factory { SearchGameLocaleUseCase(rawgLocaleRepository = get()) }
+    factory { GetFavouritesUseCase(rawgLocaleRepository = get()) }
 }
 
 val repositoryModule: Module = module {

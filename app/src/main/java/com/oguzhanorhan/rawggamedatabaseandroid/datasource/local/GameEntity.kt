@@ -11,6 +11,7 @@ class GameEntity (
     var rating: Float?,
     var released: String?,
     var background: String?,
+    var isFavourite: Boolean = false
 )
 
 fun GameEntity.mapToDomain(): Game = Game(id = id, name =  name, rating = rating, released = released, background_image = background)

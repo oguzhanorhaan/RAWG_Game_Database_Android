@@ -5,8 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.navigation.Navigation
 import com.oguzhanorhan.rawggamedatabaseandroid.common.injectFeature
 import com.oguzhanorhan.rawggamedatabaseandroid.databinding.FragmentFavouriteGamesBinding
+import com.oguzhanorhan.rawggamedatabaseandroid.scenes.gamelist.GameListFragmentDirections
 import com.oguzhanorhan.rawggamedatabaseandroid.scenes.gamelist.ItemListAdapter
 import org.koin.android.ext.android.inject
 
@@ -32,7 +35,17 @@ class FavouriteGamesFragment: Fragment() {
 
         binding.favouriteGameResultList.adapter = ItemListAdapter(
             ItemListAdapter.OnClickListener {
-                // viewModel.displayItemDetails(it)
+                viewModel.displayItemDetails(it)
+            }
+        )
+
+        viewModel.navigateToSelectedItem.observe(
+            this.viewLifecycleOwner,
+            Observer { item ->
+                item?.let {
+                    Navigation.findNavController(binding.root).navigate(FavouriteGamesFragmentDirections.actionFavouriteGamesFragmentToGameDetailsFragment(it))
+                    viewModel.displayItemDetailsComplete()
+                }
             }
         )
 

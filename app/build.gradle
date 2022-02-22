@@ -91,4 +91,7 @@ dependencies {
     // Lifecycle + ViewModel & LiveData
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1"
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.4.1"
+
+    // View Pager Dots
+    implementation 'me.relex:circleindicator:2.1.6'
 }

@@ -21,6 +21,11 @@ class FavouriteGamesVM constructor(
 
     private val _favouriteGames = MutableLiveData<List<Game?>>()
 
+    private val _navigateToSelectedItem = MutableLiveData<Game?>()
+
+    val navigateToSelectedItem: LiveData<Game?>
+        get() = _navigateToSelectedItem
+
     init {
         launch {
             getFavouritesUseCase.get().catch {
@@ -30,5 +35,13 @@ class FavouriteGamesVM constructor(
                 _favouriteGames.postValue(it)
             }
         }
+    }
+
+    fun displayItemDetails(item: Game) {
+        _navigateToSelectedItem.value = item
+    }
+
+    fun displayItemDetailsComplete() {
+        _navigateToSelectedItem.value = null
     }
 }

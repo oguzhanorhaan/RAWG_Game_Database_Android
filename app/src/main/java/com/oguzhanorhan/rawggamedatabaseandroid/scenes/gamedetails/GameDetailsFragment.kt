@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.oguzhanorhan.rawggamedatabaseandroid.R
 import com.oguzhanorhan.rawggamedatabaseandroid.common.injectFeature
 import com.oguzhanorhan.rawggamedatabaseandroid.databinding.FragmentGameDetailBinding
 import org.koin.android.ext.android.inject
@@ -29,6 +30,18 @@ class GameDetailsFragment: Fragment() {
         binding.lifecycleOwner = this
 
         binding.viewModel = viewModel
+
+        viewModel.isItemFavourite.observe(this.viewLifecycleOwner, {
+            if (it == true) {
+                binding.bookmarkButton.setImageResource(R.drawable.bookmark)
+            } else {
+                binding.bookmarkButton.setImageResource(R.drawable.ic_baseline_bookmark_border_24)
+            }
+        })
+
+        binding.bookmarkButton.setOnClickListener {
+            viewModel.updateFavourite()
+        }
 
         return binding.root
     }

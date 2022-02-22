@@ -9,10 +9,7 @@ import com.oguzhanorhan.rawggamedatabaseandroid.datasource.remote.RemoteDataSour
 import com.oguzhanorhan.rawggamedatabaseandroid.datasource.remote.ResponseHandler
 import com.oguzhanorhan.rawggamedatabaseandroid.datasource.remote.createNetworkClient
 import com.oguzhanorhan.rawggamedatabaseandroid.domain.repository.RawgRepository
-import com.oguzhanorhan.rawggamedatabaseandroid.domain.usecase.GameDetailsUseCase
-import com.oguzhanorhan.rawggamedatabaseandroid.domain.usecase.GetFavouritesUseCase
-import com.oguzhanorhan.rawggamedatabaseandroid.domain.usecase.RetrieveGameListAndSaveToLocaleUseCase
-import com.oguzhanorhan.rawggamedatabaseandroid.domain.usecase.SearchGameLocaleUseCase
+import com.oguzhanorhan.rawggamedatabaseandroid.domain.usecase.*
 import com.oguzhanorhan.rawggamedatabaseandroid.scenes.favouritegames.FavouriteGamesVM
 import com.oguzhanorhan.rawggamedatabaseandroid.scenes.gamedetails.GameDetailsVM
 import com.oguzhanorhan.rawggamedatabaseandroid.scenes.gamelist.GameListVM
@@ -47,7 +44,9 @@ val viewModelModule: Module = module {
     viewModel { (item: Game) ->
         GameDetailsVM(
             item = item,
-            gameDetailsUseCase = get()
+            gameDetailsUseCase = get(),
+            gameFavouriteStatusUseCase = get(),
+            updateGameFavouriteStatusUseCase = get()
         )
     }
     viewModel {
@@ -66,6 +65,8 @@ val useCaseModule: Module = module {
     factory { GameDetailsUseCase(rawgRepository = get()) }
     factory { SearchGameLocaleUseCase(rawgLocaleRepository = get()) }
     factory { GetFavouritesUseCase(rawgLocaleRepository = get()) }
+    factory { GameFavouriteStatusUseCase(rawgLocaleRepository = get()) }
+    factory { UpdateGameFavouriteStatusUseCase(rawgLocaleRepository = get()) }
 }
 
 val repositoryModule: Module = module {

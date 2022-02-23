@@ -45,10 +45,11 @@ Commit messages and branches are below:
 
 Project divided into 7 tasks, ITS(RAWG):   
 RAWG-01 - Add splash screen for the project  
-RAWG-02 - Add base structure for the project
-RAWG-03 - Create List screen and details screen
-RAWG-04 - Add room db save to locale feature
-RAWG-05 - Add favourites page
+RAWG-02 - Add base structure for the project   
+RAWG-03 - Create List screen and details screen    
+RAWG-04 - Add room db save to locale feature     
+RAWG-05 - Add favourites page    
 RAWG-06 - Add Crashlytics and Analytics  
-RAWG-07 - Refactor code and add tests.  
+RAWG-07 - Refactor code and add tests     
 
+<img src="https://github.com/oguzhanorhaan/RAWG_Game_Database_Android/blob/main/ss1.png" width="30%"> <img src="https://github.com/oguzhanorhaan/RAWG_Game_Database_Android/blob/main/ss2.png" width="30%"> <img src="https://github.com/oguzhanorhaan/RAWG_Game_Database_Android/blob/main/ss3.png" width="30%"> <img src="https://github.com/oguzhanorhaan/RAWG_Game_Database_Android/blob/main/ss4.png" width="30%">

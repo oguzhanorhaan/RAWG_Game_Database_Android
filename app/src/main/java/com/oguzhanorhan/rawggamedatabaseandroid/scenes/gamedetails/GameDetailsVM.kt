@@ -2,6 +2,7 @@ package com.oguzhanorhan.rawggamedatabaseandroid.scenes.gamedetails
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.oguzhanorhan.rawggamedatabaseandroid.common.log.AppEventType
 import com.oguzhanorhan.rawggamedatabaseandroid.common.view.BaseVM
 import com.oguzhanorhan.rawggamedatabaseandroid.data.model.RawgApiStatus
 import com.oguzhanorhan.rawggamedatabaseandroid.datasource.remote.getApiKey
@@ -62,7 +63,11 @@ class GameDetailsVM constructor(
     fun updateFavourite() {
         _isItemFavourite.postValue(!(_isItemFavourite.value)!!)
         launch {
-            selectedItem.value?.id?.let { updateGameFavouriteStatusUseCase.get(it) }
+            selectedItem.value?.id?.let {
+                if (_isItemFavourite.value == true) { AppEventType.AddFavourite(it.toString()).send() }
+                else { AppEventType.RemoveFavourite(it.toString()).send() }
+                updateGameFavouriteStatusUseCase.get(it)
+            }
         }
     }
 }

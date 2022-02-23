@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.Navigation
 import com.oguzhanorhan.rawggamedatabaseandroid.common.injectFeature
+import com.oguzhanorhan.rawggamedatabaseandroid.common.log.AppEventType
 import com.oguzhanorhan.rawggamedatabaseandroid.common.onQueryTextChanged
 import com.oguzhanorhan.rawggamedatabaseandroid.databinding.FragmentGameListBinding
 import org.koin.android.ext.android.inject
@@ -59,6 +60,7 @@ class GameListFragment : Fragment() {
             this.viewLifecycleOwner,
             Observer { item ->
                 item?.let {
+                    AppEventType.ItemClicked(it.id.toString()).send()
                     Navigation.findNavController(binding.root).navigate(GameListFragmentDirections.actionGameListFragmentToGameDetailsFragment(it))
                     viewModel.displayItemDetailsComplete()
                 }

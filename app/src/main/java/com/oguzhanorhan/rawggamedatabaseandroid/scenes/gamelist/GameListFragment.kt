@@ -11,6 +11,8 @@ import com.oguzhanorhan.rawggamedatabaseandroid.common.injectFeature
 import com.oguzhanorhan.rawggamedatabaseandroid.common.log.AppEventType
 import com.oguzhanorhan.rawggamedatabaseandroid.common.onQueryTextChanged
 import com.oguzhanorhan.rawggamedatabaseandroid.databinding.FragmentGameListBinding
+import com.oguzhanorhan.rawggamedatabaseandroid.scenes.gamelist.adapters.ImageSliderAdapter
+import com.oguzhanorhan.rawggamedatabaseandroid.scenes.gamelist.adapters.ItemListAdapter
 import org.koin.android.ext.android.inject
 
 class GameListFragment : Fragment() {

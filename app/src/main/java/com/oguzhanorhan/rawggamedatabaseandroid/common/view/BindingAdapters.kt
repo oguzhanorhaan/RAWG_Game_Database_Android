@@ -1,4 +1,4 @@
-package com.oguzhanorhan.rawggamedatabaseandroid.common
+package com.oguzhanorhan.rawggamedatabaseandroid.common.view
 
 import android.view.View
 import android.widget.ImageView
@@ -10,7 +10,7 @@ import com.bumptech.glide.request.RequestOptions
 import com.oguzhanorhan.rawggamedatabaseandroid.R
 import com.oguzhanorhan.rawggamedatabaseandroid.data.model.RawgApiStatus
 import com.oguzhanorhan.rawggamedatabaseandroid.datasource.remote.model.Game
-import com.oguzhanorhan.rawggamedatabaseandroid.scenes.gamelist.ItemListAdapter
+import com.oguzhanorhan.rawggamedatabaseandroid.scenes.gamelist.adapters.ItemListAdapter
 
 @BindingAdapter("listData")
 fun bindGameItemsRecyclerView(recyclerView: RecyclerView, data: List<Game>?) {

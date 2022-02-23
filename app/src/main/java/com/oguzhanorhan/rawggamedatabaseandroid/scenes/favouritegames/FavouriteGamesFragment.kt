@@ -10,7 +10,7 @@ import androidx.navigation.Navigation
 import com.oguzhanorhan.rawggamedatabaseandroid.common.injectFeature
 import com.oguzhanorhan.rawggamedatabaseandroid.common.log.AppEventType
 import com.oguzhanorhan.rawggamedatabaseandroid.databinding.FragmentFavouriteGamesBinding
-import com.oguzhanorhan.rawggamedatabaseandroid.scenes.gamelist.ItemListAdapter
+import com.oguzhanorhan.rawggamedatabaseandroid.scenes.gamelist.adapters.ItemListAdapter
 import org.koin.android.ext.android.inject
 
 class FavouriteGamesFragment : Fragment() {

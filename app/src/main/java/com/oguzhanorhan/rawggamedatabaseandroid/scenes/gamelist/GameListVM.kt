@@ -30,11 +30,6 @@ class GameListVM constructor(
     val items: LiveData<List<Game?>?>
         get() = _items
 
-    val mainGameItems: LiveData<List<Game?>?>
-        get() = _mainGameItems
-
-    private val _mainGameItems = MutableLiveData<List<Game?>?>()
-
     private val _navigateToSelectedItem = MutableLiveData<Game?>()
 
     val navigateToSelectedItem: LiveData<Game?>
@@ -69,9 +64,6 @@ class GameListVM constructor(
                 when (_status.value) {
                     RawgApiStatus.DONE -> {
                         _items.value = response.data?.results
-                        if (_items.value?.size ?: 0 > 3) {
-                            _mainGameItems.value = _items.value!!.subList(2, _items.value!!.size - 1)
-                        }
                     }
                     else -> {
                         _items.value = ArrayList()

@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
-import com.oguzhanorhan.rawggamedatabaseandroid.MainActivity
 import com.oguzhanorhan.rawggamedatabaseandroid.databinding.ActivitySplashBinding
 
 class SplashActivity : AppCompatActivity() {

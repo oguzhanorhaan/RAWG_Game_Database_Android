@@ -1,4 +1,4 @@
-package com.oguzhanorhan.rawggamedatabaseandroid
+package com.oguzhanorhan.rawggamedatabaseandroid.scenes
 
 import android.os.Bundle
 import android.view.Window
@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
+import com.oguzhanorhan.rawggamedatabaseandroid.R
 import com.oguzhanorhan.rawggamedatabaseandroid.common.log.AppLog
 import com.oguzhanorhan.rawggamedatabaseandroid.databinding.ActivityMainBinding
 

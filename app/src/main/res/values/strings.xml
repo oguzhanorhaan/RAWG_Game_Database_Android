@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">RawgGameDatabaseAndroid</string>
+    <string name="splash_screen_text">RAWG DB</string>
+    <string name="no_favourite_game">No favourite game found</string>
+    <string name="description">Description</string>
 </resources>

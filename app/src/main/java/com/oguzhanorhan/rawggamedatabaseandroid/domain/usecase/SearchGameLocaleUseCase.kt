@@ -11,7 +11,7 @@ class SearchGameLocaleUseCase constructor(
     private val rawgLocaleRepository: RawgLocalRepository
 ) {
 
-    suspend fun get(query: String, ): Flow<List<Game>> {
+    suspend fun get(query: String,): Flow<List<Game>> {
         return rawgLocaleRepository.getGames(query).debounce(300).map { entityList ->
             val list = ArrayList<Game>()
             entityList.forEach { entity ->

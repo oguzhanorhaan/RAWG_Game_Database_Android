@@ -7,7 +7,7 @@ import com.oguzhanorhan.rawggamedatabaseandroid.datasource.remote.model.Game
 import com.oguzhanorhan.rawggamedatabaseandroid.datasource.remote.model.Games
 import com.oguzhanorhan.rawggamedatabaseandroid.domain.repository.RawgRepository
 
-class RawgRepositoryImpl (
+class RawgRepositoryImpl(
     private val remoteDataSource: RemoteDataSource,
     private val responseHandler: ResponseHandler
 ) : RawgRepository {

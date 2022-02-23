@@ -13,9 +13,11 @@ object AppLog {
 
     fun sendEvent(appEventType: AppEventType) {
 
-        firebaseAnalytics.logEvent(appEventType.javaClass.name, Bundle().apply {
-            this.putString(appEventType.key, appEventType.param)
-        })
-
+        firebaseAnalytics.logEvent(
+            appEventType.javaClass.name,
+            Bundle().apply {
+                this.putString(appEventType.key, appEventType.param)
+            }
+        )
     }
 }

@@ -10,10 +10,9 @@ import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
-
 class FavouriteGamesVM constructor(
     private val getFavouritesUseCase: GetFavouritesUseCase
-): BaseVM() {
+) : BaseVM() {
 
     val favouriteGames: LiveData<List<Game?>>
         get() = _favouriteGames

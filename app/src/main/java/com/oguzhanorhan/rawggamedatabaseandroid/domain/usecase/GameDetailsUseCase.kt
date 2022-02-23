@@ -8,5 +8,4 @@ class GameDetailsUseCase(private val rawgRepository: RawgRepository) {
 
     suspend fun get(apiKey: String, id: Int): Resource<Game> =
         rawgRepository.getGameDetails(apiKey, id)
-
 }

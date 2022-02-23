@@ -6,12 +6,12 @@ import com.oguzhanorhan.rawggamedatabaseandroid.common.formatDate
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
-data class Games (
+data class Games(
     val count: Int? = null,
     val next: String? = null,
     val previous: String? = null,
     val results: List<Game>? = null
-): Parcelable
+) : Parcelable
 
 @Parcelize
 data class Game(
@@ -30,7 +30,7 @@ data class Game(
     val website: String? = null,
     val developers: List<GamesDevelopers>? = null,
     val short_screenshots: List<GamesShortScreenshots>? = null
-): Parcelable {
+) : Parcelable {
     val formattedDate: String get() = released?.formatDate() ?: ""
     val formattedDescription: String get() = (HtmlCompat.fromHtml(description ?: "", HtmlCompat.FROM_HTML_MODE_LEGACY)).toString()
 }
@@ -38,12 +38,12 @@ data class Game(
 @Parcelize
 data class GamesShortScreenshots(
     val id: Int? = null,
-    val image :String? = null
-): Parcelable
+    val image: String? = null
+) : Parcelable
 
 @Parcelize
 data class GamesDevelopers(
     val id: Int? = null,
     val name: String? = null,
     val slug: String? = null
-): Parcelable
+) : Parcelable

@@ -5,12 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.viewpager.widget.PagerAdapter
-
 import androidx.databinding.DataBindingUtil
+import androidx.viewpager.widget.PagerAdapter
 import com.oguzhanorhan.rawggamedatabaseandroid.databinding.ItemListViewBinding
 import com.oguzhanorhan.rawggamedatabaseandroid.datasource.remote.model.Game
-
 
 internal class ImageSliderAdapter(
     var context: Context?,

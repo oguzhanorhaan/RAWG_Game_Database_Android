@@ -43,7 +43,7 @@ Commit Message Convention
 Commit messages and branches are below:
 ![Screenshot](commits.png)
 
-Project divided into 7 tasks, ITS(RAWG):   
+Project divided into 7 tasks, RAWG:   
 RAWG-01 - Add splash screen for the project  
 RAWG-02 - Add base structure for the project   
 RAWG-03 - Create List screen and details screen    

@@ -17,7 +17,7 @@ for Gradle Sync. You are ready to go! Used libraries in the project is :
 - Coroutines, Flow, LiveData
 - SafeArgs Plugin : is a Gradle Plugin that generates code to help guarantee that the arguments on both side matches up while also simplifying argument passing between fragments.
 - Koin for dependency Injection
-- Mockito
+- Mockito, JUnit
 - Firebase Crashlytics, Analytics
 - Room
 - KtLint

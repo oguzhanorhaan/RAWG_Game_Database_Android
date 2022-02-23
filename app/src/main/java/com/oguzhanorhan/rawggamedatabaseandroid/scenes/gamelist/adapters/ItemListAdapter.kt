@@ -1,4 +1,4 @@
-package com.oguzhanorhan.rawggamedatabaseandroid.scenes.gamelist
+package com.oguzhanorhan.rawggamedatabaseandroid.scenes.gamelist.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

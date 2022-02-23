@@ -2,9 +2,8 @@ package com.oguzhanorhan.rawggamedatabaseandroid.scenes.gamelist
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.oguzhanorhan.rawggamedatabaseandroid.common.BaseVM
+import com.oguzhanorhan.rawggamedatabaseandroid.common.view.BaseVM
 import com.oguzhanorhan.rawggamedatabaseandroid.data.model.RawgApiStatus
-import com.oguzhanorhan.rawggamedatabaseandroid.datasource.model.Game
 import com.oguzhanorhan.rawggamedatabaseandroid.datasource.remote.getApiKey
 import com.oguzhanorhan.rawggamedatabaseandroid.domain.usecase.RetrieveGameListAndSaveToLocaleUseCase
 import com.oguzhanorhan.rawggamedatabaseandroid.domain.usecase.SearchGameLocaleUseCase
@@ -14,7 +13,7 @@ import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import androidx.lifecycle.asLiveData
-import kotlinx.coroutines.flow.debounce
+import com.oguzhanorhan.rawggamedatabaseandroid.datasource.remote.model.Game
 
 class GameListVM constructor(
     private val retrieveGameListAndSaveToLocaleUseCase: RetrieveGameListAndSaveToLocaleUseCase,

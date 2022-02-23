@@ -1,7 +1,7 @@
 package com.oguzhanorhan.rawggamedatabaseandroid.domain.usecase
 
 import com.oguzhanorhan.rawggamedatabaseandroid.data.model.Resource
-import com.oguzhanorhan.rawggamedatabaseandroid.datasource.model.Game
+import com.oguzhanorhan.rawggamedatabaseandroid.datasource.remote.model.Game
 import com.oguzhanorhan.rawggamedatabaseandroid.domain.repository.RawgRepository
 
 class GameDetailsUseCase(private val rawgRepository: RawgRepository) {

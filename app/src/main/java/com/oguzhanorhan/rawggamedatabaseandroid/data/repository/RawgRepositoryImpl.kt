@@ -2,9 +2,9 @@ package com.oguzhanorhan.rawggamedatabaseandroid.data.repository
 
 import com.oguzhanorhan.rawggamedatabaseandroid.data.datasource.RemoteDataSource
 import com.oguzhanorhan.rawggamedatabaseandroid.data.model.Resource
-import com.oguzhanorhan.rawggamedatabaseandroid.datasource.model.Game
-import com.oguzhanorhan.rawggamedatabaseandroid.datasource.model.Games
 import com.oguzhanorhan.rawggamedatabaseandroid.datasource.remote.ResponseHandler
+import com.oguzhanorhan.rawggamedatabaseandroid.datasource.remote.model.Game
+import com.oguzhanorhan.rawggamedatabaseandroid.datasource.remote.model.Games
 import com.oguzhanorhan.rawggamedatabaseandroid.domain.repository.RawgRepository
 
 class RawgRepositoryImpl (

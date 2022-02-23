@@ -2,10 +2,10 @@ package com.oguzhanorhan.rawggamedatabaseandroid.scenes.gamedetails
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.oguzhanorhan.rawggamedatabaseandroid.common.BaseVM
+import com.oguzhanorhan.rawggamedatabaseandroid.common.view.BaseVM
 import com.oguzhanorhan.rawggamedatabaseandroid.data.model.RawgApiStatus
-import com.oguzhanorhan.rawggamedatabaseandroid.datasource.model.Game
 import com.oguzhanorhan.rawggamedatabaseandroid.datasource.remote.getApiKey
+import com.oguzhanorhan.rawggamedatabaseandroid.datasource.remote.model.Game
 import com.oguzhanorhan.rawggamedatabaseandroid.domain.usecase.GameDetailsUseCase
 import com.oguzhanorhan.rawggamedatabaseandroid.domain.usecase.GameFavouriteStatusUseCase
 import com.oguzhanorhan.rawggamedatabaseandroid.domain.usecase.UpdateGameFavouriteStatusUseCase

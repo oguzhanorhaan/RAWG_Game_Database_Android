@@ -6,10 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.viewpager.widget.PagerAdapter
-import com.oguzhanorhan.rawggamedatabaseandroid.datasource.model.Game
 
 import androidx.databinding.DataBindingUtil
 import com.oguzhanorhan.rawggamedatabaseandroid.databinding.ItemListViewBinding
+import com.oguzhanorhan.rawggamedatabaseandroid.datasource.remote.model.Game
 
 
 internal class ImageSliderAdapter(

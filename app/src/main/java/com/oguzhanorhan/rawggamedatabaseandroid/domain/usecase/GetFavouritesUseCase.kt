@@ -1,8 +1,8 @@
 package com.oguzhanorhan.rawggamedatabaseandroid.domain.usecase
 
-import com.oguzhanorhan.rawggamedatabaseandroid.datasource.local.RawgLocalRepository
-import com.oguzhanorhan.rawggamedatabaseandroid.datasource.local.mapToDomain
-import com.oguzhanorhan.rawggamedatabaseandroid.datasource.model.Game
+import com.oguzhanorhan.rawggamedatabaseandroid.datasource.remote.model.Game
+import com.oguzhanorhan.rawggamedatabaseandroid.datasource.room.model.mapToDomain
+import com.oguzhanorhan.rawggamedatabaseandroid.domain.repository.RawgLocalRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 

@@ -1,4 +1,4 @@
-package com.oguzhanorhan.rawggamedatabaseandroid.datasource.model
+package com.oguzhanorhan.rawggamedatabaseandroid.datasource.remote.model
 
 import android.os.Parcelable
 import androidx.core.text.HtmlCompat

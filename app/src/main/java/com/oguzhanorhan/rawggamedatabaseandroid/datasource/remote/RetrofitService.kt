@@ -1,8 +1,8 @@
 package com.oguzhanorhan.rawggamedatabaseandroid.datasource.remote
 
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
-import com.oguzhanorhan.rawggamedatabaseandroid.datasource.model.Games
-import com.oguzhanorhan.rawggamedatabaseandroid.datasource.model.Game
+import com.oguzhanorhan.rawggamedatabaseandroid.datasource.remote.model.Game
+import com.oguzhanorhan.rawggamedatabaseandroid.datasource.remote.model.Games
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import kotlinx.coroutines.Deferred

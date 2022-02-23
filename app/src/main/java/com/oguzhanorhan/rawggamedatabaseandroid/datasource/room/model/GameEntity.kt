@@ -1,8 +1,8 @@
-package com.oguzhanorhan.rawggamedatabaseandroid.datasource.local
+package com.oguzhanorhan.rawggamedatabaseandroid.datasource.room.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.oguzhanorhan.rawggamedatabaseandroid.datasource.model.Game
+import com.oguzhanorhan.rawggamedatabaseandroid.datasource.remote.model.Game
 
 @Entity(tableName = "game_table")
 class GameEntity (

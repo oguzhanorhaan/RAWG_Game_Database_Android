@@ -1,6 +1,6 @@
 package com.oguzhanorhan.rawggamedatabaseandroid.domain.usecase
 
-import com.oguzhanorhan.rawggamedatabaseandroid.datasource.local.RawgLocalRepository
+import com.oguzhanorhan.rawggamedatabaseandroid.domain.repository.RawgLocalRepository
 
 class GameFavouriteStatusUseCase(
     private val rawgLocaleRepository: RawgLocalRepository

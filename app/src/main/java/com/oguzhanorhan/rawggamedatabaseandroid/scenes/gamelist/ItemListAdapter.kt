@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.oguzhanorhan.rawggamedatabaseandroid.databinding.ItemListViewBinding
-import com.oguzhanorhan.rawggamedatabaseandroid.datasource.model.Game
+import com.oguzhanorhan.rawggamedatabaseandroid.datasource.remote.model.Game
 
 class ItemListAdapter(val onClickListener: OnClickListener) :
     ListAdapter<Game, ItemListAdapter.ListItemViewHolder>(DiffCallback) {

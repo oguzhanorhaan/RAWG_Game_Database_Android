@@ -2,12 +2,14 @@ package com.oguzhanorhan.rawggamedatabaseandroid.common
 
 import com.oguzhanorhan.rawggamedatabaseandroid.data.datasource.RemoteDataSource
 import com.oguzhanorhan.rawggamedatabaseandroid.data.repository.RawgRepositoryImpl
-import com.oguzhanorhan.rawggamedatabaseandroid.datasource.local.RawgLocalRepository
-import com.oguzhanorhan.rawggamedatabaseandroid.datasource.model.Game
+import com.oguzhanorhan.rawggamedatabaseandroid.data.repository.RawgLocalRepositoryImpl
 import com.oguzhanorhan.rawggamedatabaseandroid.datasource.remote.RawgAPI
 import com.oguzhanorhan.rawggamedatabaseandroid.datasource.remote.RemoteDataSourceImpl
 import com.oguzhanorhan.rawggamedatabaseandroid.datasource.remote.ResponseHandler
 import com.oguzhanorhan.rawggamedatabaseandroid.datasource.remote.createNetworkClient
+import com.oguzhanorhan.rawggamedatabaseandroid.datasource.remote.model.Game
+import com.oguzhanorhan.rawggamedatabaseandroid.datasource.room.db.databaseClient
+import com.oguzhanorhan.rawggamedatabaseandroid.domain.repository.RawgLocalRepository
 import com.oguzhanorhan.rawggamedatabaseandroid.domain.repository.RawgRepository
 import com.oguzhanorhan.rawggamedatabaseandroid.domain.usecase.*
 import com.oguzhanorhan.rawggamedatabaseandroid.scenes.favouritegames.FavouriteGamesVM
@@ -71,7 +73,7 @@ val useCaseModule: Module = module {
 
 val repositoryModule: Module = module {
     single { RawgRepositoryImpl(remoteDataSource = get(), responseHandler = get()) as RawgRepository}
-    single { RawgLocalRepository(context = androidContext()) }
+    single { RawgLocalRepositoryImpl(db = get ()) as RawgLocalRepository }
 }
 
 val dataSourceModule: Module = module {
@@ -81,10 +83,9 @@ val dataSourceModule: Module = module {
 val networkModule: Module = module {
     single { rawgAPI }
     single { ResponseHandler() }
+    single { databaseClient(context = androidContext())?.gameDao() }
 }
 
 private val retrofit: Retrofit = createNetworkClient(Configs.Networking.BaseUrl)
 
 private val rawgAPI: RawgAPI = retrofit.create(RawgAPI::class.java)
-
-// todo: provide room from modules

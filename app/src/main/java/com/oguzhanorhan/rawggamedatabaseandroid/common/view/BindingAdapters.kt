@@ -9,8 +9,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.oguzhanorhan.rawggamedatabaseandroid.R
 import com.oguzhanorhan.rawggamedatabaseandroid.data.model.RawgApiStatus
-import com.oguzhanorhan.rawggamedatabaseandroid.datasource.local.GameEntity
-import com.oguzhanorhan.rawggamedatabaseandroid.datasource.model.Game
+import com.oguzhanorhan.rawggamedatabaseandroid.datasource.remote.model.Game
 import com.oguzhanorhan.rawggamedatabaseandroid.scenes.gamelist.ItemListAdapter
 
 @BindingAdapter("listData")

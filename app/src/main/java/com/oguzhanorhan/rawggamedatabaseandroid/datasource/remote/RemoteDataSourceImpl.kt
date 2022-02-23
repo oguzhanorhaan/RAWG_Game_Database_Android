@@ -1,8 +1,8 @@
 package com.oguzhanorhan.rawggamedatabaseandroid.datasource.remote
 
 import com.oguzhanorhan.rawggamedatabaseandroid.data.datasource.RemoteDataSource
-import com.oguzhanorhan.rawggamedatabaseandroid.datasource.model.Game
-import com.oguzhanorhan.rawggamedatabaseandroid.datasource.model.Games
+import com.oguzhanorhan.rawggamedatabaseandroid.datasource.remote.model.Game
+import com.oguzhanorhan.rawggamedatabaseandroid.datasource.remote.model.Games
 
 class RemoteDataSourceImpl constructor(
     private val api: RawgAPI

@@ -5,7 +5,7 @@
     <data>
         <variable
             name="item"
-            type="com.oguzhanorhan.rawggamedatabaseandroid.datasource.model.Game" />
+            type="com.oguzhanorhan.rawggamedatabaseandroid.datasource.remote.model.Game" />
     </data>
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"

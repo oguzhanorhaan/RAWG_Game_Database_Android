@@ -1,4 +1,4 @@
-package com.oguzhanorhan.rawggamedatabaseandroid.common
+package com.oguzhanorhan.rawggamedatabaseandroid.common.view
 
 import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.CoroutineScope

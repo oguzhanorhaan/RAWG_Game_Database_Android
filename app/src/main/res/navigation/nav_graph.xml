@@ -18,7 +18,7 @@
         android:label="GameDetailsFragment">
         <argument
             android:name="selectedItem"
-            app:argType="com.oguzhanorhan.rawggamedatabaseandroid.datasource.model.Game"
+            app:argType="com.oguzhanorhan.rawggamedatabaseandroid.datasource.remote.model.Game"
             />
     </fragment>
     <fragment

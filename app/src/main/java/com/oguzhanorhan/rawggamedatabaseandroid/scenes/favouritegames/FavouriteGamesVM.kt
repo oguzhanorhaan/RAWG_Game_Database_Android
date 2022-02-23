@@ -3,9 +3,8 @@ package com.oguzhanorhan.rawggamedatabaseandroid.scenes.favouritegames
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.asLiveData
-import com.oguzhanorhan.rawggamedatabaseandroid.common.BaseVM
-import com.oguzhanorhan.rawggamedatabaseandroid.datasource.model.Game
+import com.oguzhanorhan.rawggamedatabaseandroid.common.view.BaseVM
+import com.oguzhanorhan.rawggamedatabaseandroid.datasource.remote.model.Game
 import com.oguzhanorhan.rawggamedatabaseandroid.domain.usecase.GetFavouritesUseCase
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.collect

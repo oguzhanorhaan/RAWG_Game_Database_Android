@@ -1,9 +1,9 @@
 package com.oguzhanorhan.rawggamedatabaseandroid.domain.usecase
 
 import com.oguzhanorhan.rawggamedatabaseandroid.data.model.Resource
-import com.oguzhanorhan.rawggamedatabaseandroid.datasource.local.GameEntity
-import com.oguzhanorhan.rawggamedatabaseandroid.datasource.local.RawgLocalRepository
-import com.oguzhanorhan.rawggamedatabaseandroid.datasource.model.Games
+import com.oguzhanorhan.rawggamedatabaseandroid.datasource.remote.model.Games
+import com.oguzhanorhan.rawggamedatabaseandroid.datasource.room.model.GameEntity
+import com.oguzhanorhan.rawggamedatabaseandroid.domain.repository.RawgLocalRepository
 import com.oguzhanorhan.rawggamedatabaseandroid.domain.repository.RawgRepository
 
 class RetrieveGameListAndSaveToLocaleUseCase(

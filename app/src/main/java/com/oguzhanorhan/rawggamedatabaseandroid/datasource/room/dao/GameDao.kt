@@ -1,7 +1,7 @@
-package com.oguzhanorhan.rawggamedatabaseandroid.datasource.local
+package com.oguzhanorhan.rawggamedatabaseandroid.datasource.room.dao
 
 import androidx.room.*
-import com.oguzhanorhan.rawggamedatabaseandroid.datasource.model.Game
+import com.oguzhanorhan.rawggamedatabaseandroid.datasource.room.model.GameEntity
 import kotlinx.coroutines.flow.Flow
 
 @Dao

@@ -7,6 +7,7 @@ import android.view.WindowManager
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
+import com.oguzhanorhan.rawggamedatabaseandroid.common.log.AppLog
 import com.oguzhanorhan.rawggamedatabaseandroid.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -20,5 +21,7 @@ class MainActivity : AppCompatActivity() {
         supportActionBar?.hide()
         val navController = findNavController(R.id.nav_host_fragment)
         binding.bottomNavigationBar.setupWithNavController(navController)
+
+        AppLog.initFirebase(this)
     }
 }

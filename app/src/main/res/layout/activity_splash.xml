@@ -10,8 +10,8 @@
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/iv"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
+            android:layout_width="@dimen/splash_logo_size"
+            android:layout_height="@dimen/splash_logo_size"
             app:srcCompat="@drawable/ic_launcher_foreground"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -23,7 +23,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
             android:text="@string/splash_screen_text"
-            android:textSize="24sp"
+            android:textSize="@dimen/splash_text_size"
             android:textStyle="bold"
             android:textColor="@color/white"
             app:layout_constraintTop_toBottomOf="@id/iv"

@@ -18,7 +18,6 @@ fun bindGameItemsRecyclerView(recyclerView: RecyclerView, data: List<Game>?) {
     adapter.submitList(data)
 }
 
-
 @BindingAdapter("imageUrl")
 fun ImageView.bindImage(imgUrl: String?) {
     imgUrl?.let {

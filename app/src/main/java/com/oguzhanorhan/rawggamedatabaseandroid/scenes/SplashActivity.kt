@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
-import com.oguzhanorhan.rawggamedatabaseandroid.MainActivity
 import com.oguzhanorhan.rawggamedatabaseandroid.databinding.ActivitySplashBinding
 
 class SplashActivity : AppCompatActivity() {
@@ -19,10 +18,13 @@ class SplashActivity : AppCompatActivity() {
         val actionBar = supportActionBar
         actionBar?.hide()
 
-        Handler(Looper.getMainLooper()).postDelayed({
-            val intent = Intent(context, MainActivity::class.java)
-            startActivity(intent)
-            finish()
-        },2500)
+        Handler(Looper.getMainLooper()).postDelayed(
+            {
+                val intent = Intent(context, MainActivity::class.java)
+                startActivity(intent)
+                finish()
+            },
+            2500
+        )
     }
 }

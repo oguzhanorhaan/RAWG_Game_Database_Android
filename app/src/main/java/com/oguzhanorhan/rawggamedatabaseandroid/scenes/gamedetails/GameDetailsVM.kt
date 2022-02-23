@@ -19,7 +19,7 @@ class GameDetailsVM constructor(
     private val gameDetailsUseCase: GameDetailsUseCase,
     private val gameFavouriteStatusUseCase: GameFavouriteStatusUseCase,
     private val updateGameFavouriteStatusUseCase: UpdateGameFavouriteStatusUseCase
-): BaseVM()  {
+) : BaseVM() {
 
     private val _status = MutableLiveData<RawgApiStatus>()
 
@@ -47,7 +47,7 @@ class GameDetailsVM constructor(
             val favouriteStatus = response.data?.id?.let { gameFavouriteStatusUseCase.get(it) } ?: false
             withContext(Dispatchers.Main) {
                 _status.value = response.status
-                when(_status.value) {
+                when (_status.value) {
                     RawgApiStatus.DONE -> {
                         _selectedItem.value = response.data
                         _isItemFavourite.value = favouriteStatus
@@ -64,8 +64,7 @@ class GameDetailsVM constructor(
         _isItemFavourite.postValue(!(_isItemFavourite.value)!!)
         launch {
             selectedItem.value?.id?.let {
-                if (_isItemFavourite.value == true) { AppEventType.AddFavourite(it.toString()).send() }
-                else { AppEventType.RemoveFavourite(it.toString()).send() }
+                if (_isItemFavourite.value == true) { AppEventType.AddFavourite(it.toString()).send() } else { AppEventType.RemoveFavourite(it.toString()).send() }
                 updateGameFavouriteStatusUseCase.get(it)
             }
         }

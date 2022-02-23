@@ -11,7 +11,7 @@ import com.oguzhanorhan.rawggamedatabaseandroid.databinding.FragmentGameDetailBi
 import org.koin.android.ext.android.inject
 import org.koin.core.parameter.parametersOf
 
-class GameDetailsFragment: Fragment() {
+class GameDetailsFragment : Fragment() {
 
     private lateinit var binding: FragmentGameDetailBinding
 
@@ -23,7 +23,7 @@ class GameDetailsFragment: Fragment() {
         super.onCreate(savedInstanceState)
         binding = FragmentGameDetailBinding.inflate(inflater)
         val item = GameDetailsFragmentArgs.fromBundle(requireArguments()).selectedItem
-        val viewModel by inject<GameDetailsVM>(){ parametersOf(item) }
+        val viewModel by inject<GameDetailsVM>() { parametersOf(item) }
 
         injectFeature()
 
@@ -31,13 +31,16 @@ class GameDetailsFragment: Fragment() {
 
         binding.viewModel = viewModel
 
-        viewModel.isItemFavourite.observe(this.viewLifecycleOwner, {
-            if (it == true) {
-                binding.bookmarkButton.setImageResource(R.drawable.bookmark)
-            } else {
-                binding.bookmarkButton.setImageResource(R.drawable.ic_baseline_bookmark_border_24)
+        viewModel.isItemFavourite.observe(
+            this.viewLifecycleOwner,
+            {
+                if (it == true) {
+                    binding.bookmarkButton.setImageResource(R.drawable.bookmark)
+                } else {
+                    binding.bookmarkButton.setImageResource(R.drawable.ic_baseline_bookmark_border_24)
+                }
             }
-        })
+        )
 
         binding.bookmarkButton.setOnClickListener {
             viewModel.updateFavourite()

@@ -1,8 +1,8 @@
 package com.oguzhanorhan.rawggamedatabaseandroid.common
 
 import com.oguzhanorhan.rawggamedatabaseandroid.data.datasource.RemoteDataSource
-import com.oguzhanorhan.rawggamedatabaseandroid.data.repository.RawgRepositoryImpl
 import com.oguzhanorhan.rawggamedatabaseandroid.data.repository.RawgLocalRepositoryImpl
+import com.oguzhanorhan.rawggamedatabaseandroid.data.repository.RawgRepositoryImpl
 import com.oguzhanorhan.rawggamedatabaseandroid.datasource.remote.RawgAPI
 import com.oguzhanorhan.rawggamedatabaseandroid.datasource.remote.RemoteDataSourceImpl
 import com.oguzhanorhan.rawggamedatabaseandroid.datasource.remote.ResponseHandler
@@ -16,10 +16,10 @@ import com.oguzhanorhan.rawggamedatabaseandroid.scenes.favouritegames.FavouriteG
 import com.oguzhanorhan.rawggamedatabaseandroid.scenes.gamedetails.GameDetailsVM
 import com.oguzhanorhan.rawggamedatabaseandroid.scenes.gamelist.GameListVM
 import org.koin.android.ext.koin.androidContext
+import org.koin.android.viewmodel.dsl.viewModel
 import org.koin.core.context.loadKoinModules
 import org.koin.core.module.Module
 import org.koin.dsl.module
-import org.koin.android.viewmodel.dsl.viewModel
 import retrofit2.Retrofit
 
 fun injectFeature() = loadFeature
@@ -40,7 +40,7 @@ val viewModelModule: Module = module {
     viewModel {
         GameListVM(
             retrieveGameListAndSaveToLocaleUseCase = get(),
-            searchGameLocaleUseCase = get ()
+            searchGameLocaleUseCase = get()
         )
     }
     viewModel { (item: Game) ->
@@ -62,7 +62,8 @@ val useCaseModule: Module = module {
     factory {
         RetrieveGameListAndSaveToLocaleUseCase(
             rawgRepository = get(),
-            rawgLocaleRepository = get())
+            rawgLocaleRepository = get()
+        )
     }
     factory { GameDetailsUseCase(rawgRepository = get()) }
     factory { SearchGameLocaleUseCase(rawgLocaleRepository = get()) }
@@ -72,8 +73,8 @@ val useCaseModule: Module = module {
 }
 
 val repositoryModule: Module = module {
-    single { RawgRepositoryImpl(remoteDataSource = get(), responseHandler = get()) as RawgRepository}
-    single { RawgLocalRepositoryImpl(db = get ()) as RawgLocalRepository }
+    single { RawgRepositoryImpl(remoteDataSource = get(), responseHandler = get()) as RawgRepository }
+    single { RawgLocalRepositoryImpl(db = get()) as RawgLocalRepository }
 }
 
 val dataSourceModule: Module = module {

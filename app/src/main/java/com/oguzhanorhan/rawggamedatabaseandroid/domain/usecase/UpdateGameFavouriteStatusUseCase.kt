@@ -9,9 +9,11 @@ class UpdateGameFavouriteStatusUseCase(
     suspend fun get(id: Int) {
         rawgLocaleRepository.getGame(id)?.let {
             var isFavourite = it.isFavourite
-            rawgLocaleRepository.updateGame(it.apply {
-                this.isFavourite = !isFavourite
-            })
+            rawgLocaleRepository.updateGame(
+                it.apply {
+                    this.isFavourite = !isFavourite
+                }
+            )
         }
     }
 }

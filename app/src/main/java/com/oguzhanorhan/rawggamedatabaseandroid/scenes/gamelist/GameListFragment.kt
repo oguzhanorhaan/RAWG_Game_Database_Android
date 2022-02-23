@@ -42,19 +42,22 @@ class GameListFragment : Fragment() {
         binding.searchBar.onQueryTextChanged {
             viewModel.searchQuery.value = it
         }
-        viewModel.items.observe(this, { gameList ->
-            val cl = ImageSliderAdapter.OnClickListener {
-                viewModel.displayItemDetails(it)
-            }
-            gameList?.let {
-                if (gameList.size < 3) {
-                    binding.imageSlider.adapter = ImageSliderAdapter(context, gameList.take(gameList.size).toList(), cl)
-                } else {
-                    binding.imageSlider.adapter = ImageSliderAdapter(context, gameList.take(3).toList(),cl)
+        viewModel.items.observe(
+            this,
+            { gameList ->
+                val cl = ImageSliderAdapter.OnClickListener {
+                    viewModel.displayItemDetails(it)
                 }
-                binding.indicator.setViewPager(binding.imageSlider)
+                gameList?.let {
+                    if (gameList.size < 3) {
+                        binding.imageSlider.adapter = ImageSliderAdapter(context, gameList.take(gameList.size).toList(), cl)
+                    } else {
+                        binding.imageSlider.adapter = ImageSliderAdapter(context, gameList.take(3).toList(), cl)
+                    }
+                    binding.indicator.setViewPager(binding.imageSlider)
+                }
             }
-        })
+        )
 
         viewModel.navigateToSelectedItem.observe(
             this.viewLifecycleOwner,
@@ -71,7 +74,6 @@ class GameListFragment : Fragment() {
             val adapter = binding.searchGameResultList.adapter as ItemListAdapter
             adapter.submitList(it)
         }
-
 
         return binding.root
     }

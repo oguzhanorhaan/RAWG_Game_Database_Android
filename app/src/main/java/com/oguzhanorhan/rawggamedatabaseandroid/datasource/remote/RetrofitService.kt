@@ -47,5 +47,5 @@ private fun retrofitClient(baseUrl: String): Retrofit = Retrofit.Builder()
     .build()
 
 fun getApiKey(): String {
-    return "059e8e95ff7c41829c55085d9954dc6b"
+    return "rawg_api_key"
 }
